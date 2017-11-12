@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">AfsprakenVermeire</string>
-</resources>
+    <string name="app_name">Afspraken Beheer</string>
+    <string name="highlight_begin">
+        Your next appointment is with
+    </string></resources>

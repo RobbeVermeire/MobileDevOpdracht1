@@ -2,7 +2,11 @@ package com.example.gener.afsprakenvermeire;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +17,27 @@ public class MainActivity extends AppCompatActivity {
 
         AppointmentDummyRepository repository=new AppointmentDummyRepository();
         ListView AppointementList = (ListView)findViewById(R.id.appointment_list);
-        AppointementList.setAdapter(new AppointmentAdapter(this,repository));
+
+        AppointmentAdapter myAppointmentAdapter=new AppointmentAdapter(this,repository);
+        AppointementList.setAdapter(myAppointmentAdapter);
+
+
+        Appointment nextAppointment=myAppointmentAdapter.getItem(0);
+        TextView textView_highlight =(TextView) findViewById(R.id.next_appointment);
+        textView_highlight.setText(getText(R.string.highlight_begin)+" " +nextAppointment.getContactName()+" at "+
+                nextAppointment.getDay() +"/"+nextAppointment.getMonth()+" "+nextAppointment.getHour()+":"+
+                nextAppointment.getMinute()+".");
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
